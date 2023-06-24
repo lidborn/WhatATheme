@@ -10,6 +10,40 @@ tags:
 - test
 ---
 
+  <html>
+    <head>
+      <title>Google Sheets API Example</title>
+    </head>
+    <body>
+      <h1>Cell Value</h1>
+      <div id="cellValue"></div>
+
+      <script>
+        // Google Sheets API endpoint and sheet ID
+        const sheetEndpoint = 'https://sheets.googleapis.com/v4/spreadsheets/';
+        const sheetId = '1B9fSq_IKIfa5-ABKtGunFh6tiqpTbGVYiWtX1pimafc';
+        const range = 'Sheet1!D2:D2'; // Specify the cell range here
+
+        // Google Sheets API key
+        const apiKey = 'AIzaSyD2l5o2OuI7dV7SON80HaFYgpElVRYyDzo';
+
+        // Fetch the cell value
+        fetch(`${sheetEndpoint}${sheetId}/values/${range}?key=${apiKey}`)
+          .then((response) => response.json())
+          .then((data) => {
+            const cellValue = data.values[0][0]; // Assuming the response is in a 2D array format
+
+            // Display the cell value on the page
+            document.getElementById('cellValue').textContent = cellValue;
+          })
+          .catch((error) => console.log(error));
+      </script>
+    </body>
+  </html>
+
+
+
+
 This post will show you how the content will look like in the post pages and how the headlines, quotes and quotes will be represented. Jekyll is mainly used to write simple markdown and after that it renders out a static pages, so you need to know the basics of writing markdown for that.
 For more information about writing markdown you can checkout the following markdown cheatsheets:
 * [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
