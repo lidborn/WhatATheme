@@ -16,28 +16,7 @@ tags:
     </head>
     <body>
       <h1>Cell Value</h1>
-      <div id="cellValue"></div>
-
-      <script>
-        // Google Sheets API endpoint and sheet ID
-        const sheetEndpoint = 'https://sheets.googleapis.com/v4/spreadsheets/';
-        const sheetId = '1B9fSq_IKIfa5-ABKtGunFh6tiqpTbGVYiWtX1pimafc';
-        const range = 'Sheet1!D2:D2'; // Specify the cell range here
-
-        // Google Sheets API key
-        const apiKey = 'AIzaSyD2l5o2OuI7dV7SON80HaFYgpElVRYyDzo';
-
-        // Fetch the cell value
-        fetch(`${sheetEndpoint}${sheetId}/values/${range}?key=${apiKey}`)
-          .then((response) => response.json())
-          .then((data) => {
-            const cellValue = data.values[0][0]; // Assuming the response is in a 2D array format
-
-            // Display the cell value on the page
-            document.getElementById('cellValue').textContent = cellValue;
-          })
-          .catch((error) => console.log(error));
-      </script>
+      <div id="cellValue">asfashfajs</div>
     </body>
   </html>
 
