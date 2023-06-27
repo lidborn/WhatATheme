@@ -10,17 +10,54 @@ const sheetName = 'Blad1';
 // Replace 'CELL_RANGE' with the cell range you want to fetch (e.g., 'D2:D2')
 const cellRange = 'D2:D2';
 
-const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}!${cellRange}?key=${apiKey}`;
+// Function to write cell value to a Google Sheet
+function writeCellValue(sheetId, sheetName, cell, value) {
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}!${cell}?valueInputOption=USER_ENTERED&key=${apiKey}`;
 
-fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    const cellValue = data.values[0][0]; // Assuming the range contains only one cell
+  const payload = {
+    values: [[value]],
+  };
 
-    // Display the cell value on the HTML page
-    const cellElement = document.getElementById('cellValue');
-    cellElement.textContent = cellValue;
-  })
-  .catch(error => {
-    console.error('Error fetching data:', error);
+  return fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
   });
+}
+
+// Function to fetch cell value from a Google Sheet
+function fetchCellValue(sheetId, sheetName, cell) {
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}!${cell}?key=${apiKey}`;
+
+  return fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const cellValue = data.values[0][0]; // Assuming the range contains only one cell
+      return cellValue;
+    });
+}
+
+// Function to handle the button click and write the value to the sheet
+function writeToSheet() {
+  const inputValue = document.getElementById('inputValue').value;
+
+  // Write the user input value to cell D3
+  writeCellValue(sheetId, sheetName, 'D3', inputValue)
+    .then(() => {
+      console.log('Value written successfully.');
+
+      // Fetch the value from cell D2
+      fetchCellValue(sheetId, sheetName, 'D2')
+        .then(cellValue => {
+          console.log('Fetched value:', cellValue);
+        })
+        .catch(error => {
+          console.error('Error fetching cell value:', error);
+        });
+    })
+    .catch(error => {
+      console.error('Error writing value:', error);
+    });
+}
