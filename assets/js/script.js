@@ -171,18 +171,12 @@ function fetchRowValues() {
   
     // Make the API request
 
-    gapi.client.sheets.spreadsheets.values.get(params).then(function(response) {
-      const values = response.result.values;
-      if (values && values.length > 0) {
-        console.log('Values in the row:');
-        values[0].forEach(function(value) {
-        document.getElementById('content').innerText = values;
-          console.log(value);
-        });
-      } else {
-        console.log('No values found in the row.');
-      }
-    }, function(error) {
+    gapi.sheets.spreadsheets.values.get(params, function( response) {
+        var test = String(response.data.values).split(',');
+        console.log(test);
+      
+        // Work with the "response" variable inside this callback
+      }, function(error) {
       console.log('Error fetching values from the row:', error);
     });
   }
