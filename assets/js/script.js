@@ -171,13 +171,12 @@ function fetchRowValues() {
   
     // Make the API request
 
-    gapi.sheets.spreadsheets.values.get(params, function( response) {
-        var test = String(response.data.values).split(',');
-        console.log(test);
-      
-        // Work with the "response" variable inside this callback
-      }, function(error) {
-      console.log('Error fetching values from the row:', error);
+    var request = gapi.client.sheets.spreadsheets.values.get(params);
+    request.then(function(response) {
+      // TODO: Change code below to process the `response` object:
+      console.log(response.result);
+    }, function(reason) {
+      console.error('error: ' + reason.result.error.message);
     });
   }
 
