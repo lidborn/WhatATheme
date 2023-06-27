@@ -87,7 +87,7 @@ function handleAuthClick() {
     }
     document.getElementById('signout_button').style.visibility = 'visible';
     document.getElementById('authorize_button').innerText = 'Refresh';
-    //await listConnectionNames();
+    await listConnectionNames();
 
   };
   
@@ -149,24 +149,13 @@ async function listConnectionNames() {
   document.getElementById('content').innerText = output;
 }
 async function getMember() {
-    var request = {
-        spreadsheetId: '1B9fSq_IKIfa5-ABKtGunFh6tiqpTbGVYiWtX1pimafc',
-        range: 'A1:B1'
-    }
-    gapi.spreadsheets.values.get(request, function(err, response) {
-        var test = String(response.data.values).split(',');
-        console.log(test);
-    })
-      
-}
-async function getMember2() {
     // Spreadsheet ID and range
 
 
   
     // Make the API request
 
-    var request = await gapi.client.sheets.spreadsheets.values.get({
+    var request = await gapi.client.sheets.spreadsheets.get({
         spreadsheetId: '1B9fSq_IKIfa5-ABKtGunFh6tiqpTbGVYiWtX1pimafc',
         range: 'Blad1!D3:D4', // for example: List 1!A1:B6
       })
