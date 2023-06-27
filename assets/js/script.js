@@ -52,6 +52,7 @@ async function initializeGapiClient() {
   });
   gapiInited = true;
   maybeEnableButtons();
+  await getMember();
 }
 
 /**
@@ -87,8 +88,9 @@ function handleAuthClick() {
     document.getElementById('signout_button').style.visibility = 'visible';
     document.getElementById('authorize_button').innerText = 'Refresh';
     await listConnectionNames();
-    await getMember();
+
   };
+  
 
   if (gapi.client.getToken() === null) {
     // Prompt the user to select a Google Account and ask for consent to share their data
@@ -146,32 +148,14 @@ async function listConnectionNames() {
       'Connections:\n');
   document.getElementById('content').innerText = output;
 }
-function fetchRowValues() {
+async function getMember() {
     // Spreadsheet ID and range
 
-    var params = {
-        // The ID of the spreadsheet to retrieve data from.
-        spreadsheetId: '1B9fSq_IKIfa5-ABKtGunFh6tiqpTbGVYiWtX1pimafc',  // TODO: Update placeholder value.
-
-        // The A1 notation of the values to retrieve.
-        range: 'D2',  // TODO: Update placeholder value.
-
-        // How values should be represented in the output.
-        // The default render option is ValueRenderOption.FORMATTED_VALUE.
-        valueRenderOption: 'ValueRenderOption.FORMATTED_VALUE',  // TODO: Update placeholder value.
-
-        // How dates, times, and durations should be represented in the output.
-        // This is ignored if value_render_option is
-        // FORMATTED_VALUE.
-        // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
-        dateTimeRenderOption: '[DateTimeRenderOption.SERIAL_NUMBER]',  // TODO: Update placeholder value.
-      };
-    // Request parameters
 
   
     // Make the API request
 
-    var request = gapi.client.sheets.spreadsheets.values.get({
+    var request = await gapi.client.sheets.spreadsheets.values.get({
         spreadsheetId: '1B9fSq_IKIfa5-ABKtGunFh6tiqpTbGVYiWtX1pimafc',
         range: 'Blad1!D2:D2', // for example: List 1!A1:B6
       })
@@ -183,8 +167,3 @@ function fetchRowValues() {
     });
   }
 
-async function getMember() 
-{
-    
-    fetchRowValues();
-}
