@@ -3,12 +3,11 @@
   <title>Fetch Google Sheet Cell Value</title>
 </head>
 <body>
+  <script src="https://apis.google.com/js/api.js"></script>
   <script src="assets/js/script.js"></script>
   <h1>Dota 2 Sverige </h1>
-  <div id="cellValue"></div>
-  <label for="inputValue">TelefonNr:</label>
-  <input type="text" id="inputValue">
-  <button onclick="writeToSheet()">Write to Sheet</button>
+<input type="number" id="numberInput" placeholder="Enter a number">
+<button onclick="writeToGoogleSheets()">Write to Google Sheets</button>
 
 
 </body>
