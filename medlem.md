@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
   </head>
   <body>
-      <p>People API Quickstart</p>   
+      <p>Dota 2 Sverige: medlemskontroll</p>   
       <script async defer src="assets\js\script.js"></script>
-     <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
+     <button id="authorize_button" onclick="handleAuthClick()">Logga med Google</button>
      <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
     <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
     <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>

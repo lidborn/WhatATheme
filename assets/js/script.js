@@ -85,6 +85,7 @@ function handleAuthClick() {
     document.getElementById('signout_button').style.visibility = 'visible';
     document.getElementById('authorize_button').innerText = 'Refresh';
     await listConnectionNames();
+    await getMember();
   };
 
   if (gapi.client.getToken() === null) {
@@ -142,4 +143,37 @@ async function listConnectionNames() {
       },
       'Connections:\n');
   document.getElementById('content').innerText = output;
+}
+function fetchRowValues() {
+    // Spreadsheet ID and range
+    const spreadsheetId = '10ep00TK1Fz1f0LrB0B78cA6oGhHsGZNK_VWtGsy5jME';
+    const sheetName = 'Blad1';
+    const rowNumber = 8;  // Example: Fetching values from the first row
+  
+    // Request parameters
+    const request = {
+      spreadsheetId: spreadsheetId,
+      range: `${sheetName}!${rowNumber}:${rowNumber}`,
+    };
+  
+    // Make the API request
+    gapi.client.sheets.spreadsheets.values.get(request).then(function(response) {
+      const values = response.result.values;
+      if (values && values.length > 0) {
+        console.log('Values in the row:');
+        values[0].forEach(function(value) {
+        document.getElementById('content').innerText = values;
+          console.log(value);
+        });
+      } else {
+        console.log('No values found in the row.');
+      }
+    }, function(error) {
+      console.log('Error fetching values from the row:', error);
+    });
+  }
+
+async function getMember() 
+{
+    fetchRowValues();
 }
