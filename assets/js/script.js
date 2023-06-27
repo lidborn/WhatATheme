@@ -154,7 +154,7 @@ function fetchRowValues() {
         spreadsheetId: '1B9fSq_IKIfa5-ABKtGunFh6tiqpTbGVYiWtX1pimafc',  // TODO: Update placeholder value.
 
         // The A1 notation of the values to retrieve.
-        range: 'D2:D2',  // TODO: Update placeholder value.
+        range: 'D2',  // TODO: Update placeholder value.
 
         // How values should be represented in the output.
         // The default render option is ValueRenderOption.FORMATTED_VALUE.
