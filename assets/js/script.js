@@ -171,7 +171,10 @@ function fetchRowValues() {
   
     // Make the API request
 
-    var request = gapi.client.sheets.spreadsheets.values.get(params);
+    var request = gapi.client.sheets.spreadsheets.values.get({
+        spreadsheetId: '1B9fSq_IKIfa5-ABKtGunFh6tiqpTbGVYiWtX1pimafc',
+        range: 'Blad1!D2:D2', // for example: List 1!A1:B6
+      })
     request.then(function(response) {
       // TODO: Change code below to process the `response` object:
       console.log(response.result);
