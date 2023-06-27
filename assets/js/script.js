@@ -153,7 +153,7 @@ async function getMember() {
         spreadsheetId: '1B9fSq_IKIfa5-ABKtGunFh6tiqpTbGVYiWtX1pimafc',
         range: 'A1:B1'
     }
-    sheets.spreadsheets.values.get(request, function(err, response) {
+    gapi.sheets.spreadsheets.values.get(request, function(err, response) {
         var test = String(response.data.values).split(',');
         console.log(test);
     })
