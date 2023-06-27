@@ -1,3 +1,5 @@
+
+
 // Replace 'SHEET_ID' with your Google Sheet ID
 const sheetId = '1B9fSq_IKIfa5-ABKtGunFh6tiqpTbGVYiWtX1pimafc';
 
@@ -146,10 +148,24 @@ async function listConnectionNames() {
 }
 function fetchRowValues() {
     // Spreadsheet ID and range
-    const spreadsheetId = '10ep00TK1Fz1f0LrB0B78cA6oGhHsGZNK_VWtGsy5jME';
-    const sheetName = 'Blad1';
-    const rowNumber = 8;  // Example: Fetching values from the first row
-  
+
+    var params = {
+        // The ID of the spreadsheet to retrieve data from.
+        spreadsheetId: '1B9fSq_IKIfa5-ABKtGunFh6tiqpTbGVYiWtX1pimafc',  // TODO: Update placeholder value.
+
+        // The A1 notation of the values to retrieve.
+        range: 'D2:D2',  // TODO: Update placeholder value.
+
+        // How values should be represented in the output.
+        // The default render option is ValueRenderOption.FORMATTED_VALUE.
+        valueRenderOption: 'ValueRenderOption.FORMATTED_VALUE',  // TODO: Update placeholder value.
+
+        // How dates, times, and durations should be represented in the output.
+        // This is ignored if value_render_option is
+        // FORMATTED_VALUE.
+        // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
+        dateTimeRenderOption: '[DateTimeRenderOption.SERIAL_NUMBER]',  // TODO: Update placeholder value.
+      };
     // Request parameters
     const request = {
       spreadsheetId: spreadsheetId,
@@ -157,6 +173,7 @@ function fetchRowValues() {
     };
   
     // Make the API request
+
     gapi.client.sheets.spreadsheets.values.get(request).then(function(response) {
       const values = response.result.values;
       if (values && values.length > 0) {
