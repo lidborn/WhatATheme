@@ -3,6 +3,7 @@
   <title>Fetch Google Sheet Cell Value</title>
 </head>
 <body>
+  <script src="assets/js/scipt.js"></script>
   <h1>Cell Value:</h1>
   <div id="Är Sultanen medlem?"></div>
   <label for="inputValue">TelefonNr:</label>
