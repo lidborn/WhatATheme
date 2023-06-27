@@ -167,10 +167,7 @@ function fetchRowValues() {
         dateTimeRenderOption: '[DateTimeRenderOption.SERIAL_NUMBER]',  // TODO: Update placeholder value.
       };
     // Request parameters
-    const request = {
-      spreadsheetId: spreadsheetId,
-      range: `${sheetName}!${rowNumber}:${rowNumber}`,
-    };
+
   
     // Make the API request
 
