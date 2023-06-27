@@ -8,14 +8,14 @@ const apiKey = 'AIzaSyD2l5o2OuI7dV7SON80HaFYgpElVRYyDzo';
 const sheetName = 'Blad1';
 
 // Replace 'CELL_RANGE' with the cell range you want to fetch (e.g., 'D2:D2')
-const cellRange = 'D2:D2';
+
 
 // Function to write cell value to a Google Sheet
 function writeCellValue(sheetId, sheetName, cell, value) {
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}!${cell}?valueInputOption=USER_ENTERED&key=${apiKey}`;
 
   const payload = {
-    values: [[value]],
+    values: [value],
   };
 
   return fetch(url, {
@@ -28,15 +28,13 @@ function writeCellValue(sheetId, sheetName, cell, value) {
 }
 
 // Function to fetch cell value from a Google Sheet
-function fetchCellValue(sheetId, sheetName, cell) {
+async function fetchCellValue(sheetId, sheetName, cell) {
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}!${cell}?key=${apiKey}`;
 
-  return fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const cellValue = data.values[0][0]; // Assuming the range contains only one cell
-      return cellValue;
-    });
+  const response = await fetch(url);
+    const data = await response.json();
+    const cellValue = data.values[0][0]; // Assuming the range contains only one cell
+    return cellValue;
 }
 
 // Function to handle the button click and write the value to the sheet
