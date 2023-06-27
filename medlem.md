@@ -1,9 +1,5 @@
-<!DOCTYPE html>
+
 <html>
-  <head>
-    <title>Sheets API Quickstart</title>
-    <meta charset="utf-8" />
-  </head>
   <body>
     <p>Sheets API Quickstart</p>
     <!--Add buttons to initiate auth sequence and sign out-->

@@ -26,21 +26,17 @@ const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/people/v1/re
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
 const SCOPES = 'https://www.googleapis.com/auth/contacts.readonly';
-
 let tokenClient;
 let gapiInited = false;
 let gisInited = false;
-
 document.getElementById('authorize_button').style.visibility = 'hidden';
 document.getElementById('signout_button').style.visibility = 'hidden';
-
 /**
  * Callback after api.js is loaded.
  */
 function gapiLoaded() {
   gapi.load('client', initializeGapiClient);
 }
-
 /**
  * Callback after the API client is loaded. Loads the
  * discovery doc to initialize the API.
@@ -54,7 +50,6 @@ async function initializeGapiClient() {
   maybeEnableButtons();
   await getMember();
 }
-
 /**
  * Callback after Google Identity Services are loaded.
  */
@@ -67,7 +62,6 @@ function gisLoaded() {
   gisInited = true;
   maybeEnableButtons();
 }
-
 /**
  * Enables user interaction after all libraries are loaded.
  */
@@ -76,7 +70,6 @@ function maybeEnableButtons() {
     document.getElementById('authorize_button').style.visibility = 'visible';
   }
 }
-
 /**
  *  Sign in the user upon button click.
  */
@@ -101,7 +94,6 @@ function handleAuthClick() {
     tokenClient.requestAccessToken({prompt: ''});
   }
 }
-
 /**
  *  Sign out the user upon button click.
  */
@@ -115,7 +107,6 @@ function handleSignoutClick() {
     document.getElementById('signout_button').style.visibility = 'hidden';
   }
 }
-
 /**
  * Print the display name if available for 10 connections.
  */
