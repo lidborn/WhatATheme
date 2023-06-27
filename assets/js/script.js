@@ -41,10 +41,10 @@ function fetchCellValue(sheetId, sheetName, cell) {
 
 // Function to handle the button click and write the value to the sheet
 function writeToSheet() {
-  const inputValue = document.getElementById('inputValue').value;
+    inputValue = document.getElementById('inputValue').value;
 
-  // Write the user input value to cell D3
-  writeCellValue(sheetId, sheetName, 'D3', inputValue)
+  // Write the user input value to cell C2
+  writeCellValue(sheetId, sheetName, 'C2', inputValue)
     .then(() => {
       console.log('Value written successfully.');
 
