@@ -149,6 +149,17 @@ async function listConnectionNames() {
   document.getElementById('content').innerText = output;
 }
 async function getMember() {
+    var request = {
+        spreadsheetId: '1B9fSq_IKIfa5-ABKtGunFh6tiqpTbGVYiWtX1pimafc',
+        range: 'A1:B1'
+    }
+    sheets.spreadsheets.values.get(request, function(err, response) {
+        var test = String(response.data.values).split(',');
+        console.log(test);
+    })
+      
+}
+async function getMember2() {
     // Spreadsheet ID and range
 
 
@@ -157,7 +168,7 @@ async function getMember() {
 
     var request = await gapi.client.sheets.spreadsheets.values.get({
         spreadsheetId: '1B9fSq_IKIfa5-ABKtGunFh6tiqpTbGVYiWtX1pimafc',
-        range: 'Blad1!D2:D2', // for example: List 1!A1:B6
+        range: 'Blad1!D3:D4', // for example: List 1!A1:B6
       })
     request.then(function(response) {
       // TODO: Change code below to process the `response` object:
