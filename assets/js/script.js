@@ -192,5 +192,6 @@ function fetchRowValues() {
 
 async function getMember() 
 {
+    
     fetchRowValues();
 }
