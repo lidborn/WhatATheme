@@ -1,6 +1,5 @@
 
-const {google} = require('googleapis');
-const sheets = google.sheets('v4');
+
 // Replace 'SHEET_ID' with your Google Sheet ID
 const sheetId = '1B9fSq_IKIfa5-ABKtGunFh6tiqpTbGVYiWtX1pimafc';
 
