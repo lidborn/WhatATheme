@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    incremental: true
+    incremental: True
     runs-on: ubuntu-latest
     
     steps:
