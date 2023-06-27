@@ -174,7 +174,7 @@ function fetchRowValues() {
   
     // Make the API request
 
-    gapi.client.sheets.spreadsheets.values.get(request).then(function(response) {
+    gapi.client.sheets.spreadsheets.values.get(params).then(function(response) {
       const values = response.result.values;
       if (values && values.length > 0) {
         console.log('Values in the row:');
