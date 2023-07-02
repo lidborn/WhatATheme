@@ -5,7 +5,7 @@ markdown: kramdown
 #url: lidborn.github.io
 # Base URL of the Site (i.e., Name of the Repository in which the Site is hosted)
 #baseurl: https://lidborn.github.io/
-baseurl:
+baseurl: https://lidborn.github.io
 url: ''
 # Title of the Site
 title: BBBBBBBBBBB
