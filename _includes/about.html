@@ -1,10 +1,43 @@
-<section class="hero is-fullheight" id="project">
+
+
+
+
+<section class="hero is-fullheight has-text-centered has-background-white-ter" id="about">
     <div class="hero-body">
-        <div class="container has-text-centered">
-            <div class="section">
-                <p class="subtitle is-uppercase has-text-weight-medium has-text-grey">Projects</p>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-one-fifth-desktop is-one-fifth-tablet is-one-fifth-fullhd">
+                    <figure class="image">
+                        <img class="is-rounded" src="{{site.author-image}}" alt="{{site.author-name}}">
+                    </figure>
+                </div>
+                <div class="column has-text-left-desktop has-text-left-tablet has-text-left-fullhd has-text-left-widescreen">
+                    
+                    <b>Welcome to my portfolio and gameDev blog page!</b>
+                    <br><br>
+
+
+                    Here I document my involvement in the broader game development community and other game related activities.
+                    I hope you'll be inspired, educated, and entertained. Whether you're a developer, an avid gamer, or simply curious about game development world. I will also try to make posts
+                    and updates on my involvement in the dota2 scene.
+                    
+                    
+                    <p>{{site.author-aboutMe}}</p>
+                    <br>
+                    <div class="container columns is-centered">
+                        <div>
+                            <a href="{{site.url}}{{site.baseurl}}/#contact"
+                                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined">Contact
+                                Me</a>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{site.url}}{{site.baseurl}}/blog"
+                                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined">Blog</a>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            {% include project-card.html %}
         </div>
-    </div>
 </section>
