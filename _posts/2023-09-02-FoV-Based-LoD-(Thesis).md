@@ -27,16 +27,21 @@ This technique is combined with normal LoD and selects a value based on input fr
 
 Unity was used to build a scene with a predetermined path for the camera to move in order for all test to be equal. Across all tests the only parameter changed is the LoD values used to render. These were determined by the user input and cannot be strictly equal. 
 
-The tobii Eye X tracker was used in this experiment. It has the capability to determine how far the user is placed from the monitor and together with monitor data we could calculate all fovea regions on the screen, in terms of both pixels and physicals centimetres. With this information in hand we have two things left to do. Optimize the program enough so that the GPU and CPU cost of using the eyetracker is less than the performance gained. And to determine how far whe can push the LoD levels without the user noticing the effect of the foveated LoD
+The tobii Eye X tracker was used in this experiment. It has the capability to determine how far the user is placed from the monitor and together with monitor data we could calculate all fovea regions on the screen, in terms of both pixels and physicals centimetres.
+
+<video controls width="400">
+  <source src="FoV.webm" type="video/webm" />
+ With this information in hand we have two things left to do. Optimize the program enough so that the GPU and CPU cost of using the eyetracker is less than the performance gained. And to determine how far whe can push the LoD levels without the user noticing the effect of the foveated LoD
 
 
 ### Optimization
 
+So! onwards to step 1! First the cost. 
+
+
 ### Results
 
-* [Link to the game](https://bojkott.itch.io/kappe)
-* [Link to youtube](https://www.youtube.com/watch?v=-aoo2GCB7ck)
-* [Like to ludum dare](https://ludumdare.com/)
+
 
 ---
 ![](https://i.imgur.com/p1n1ntl.png)
